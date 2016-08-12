@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^new_resume$', views.new_resume),
     url(r'^edit_resume$', views.edit_resume),
     url(r'^delete_resume$', views.delete_resume),
+    url(r'^download_resume$', views.download_resume),
 ]

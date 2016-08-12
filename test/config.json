@@ -1,0 +1,73 @@
+{
+    "config.inputFile":"ugprefinal.docx",
+    "config.outputFile":"output.docx",
+    "config.debug":true,
+    "name_full":"Saurabh Dubey",
+    "gender":"Male",
+    "nationality" : "Indian",
+    "age":"19",
+    "address" : "test address",
+    "email_id" : "saurabhd336@gmail.com",
+    "fname" : "Permatma Prasad Dubey",
+    "dob" : "2nd March 1996",
+    "langs" : "Hindi, English",
+    "branch" : "EEE",
+    "cgpa" : "8.04",
+    "gpa_details" : [
+                        {
+                            "details" : [ 
+                                        {
+                                            "sem" : "I",
+                                            "month" : "Dec 12",
+                                            "gpa" : "8.65"
+                                        },
+                                        {
+                                            "sem" : "II",
+                                            "month" : "May 13",
+                                            "gpa" : "8.45"
+                                        },
+                                        {
+                                            "sem" : "III",
+                                            "month" : "Dec 13",
+                                            "gpa" : "7.67"
+                                        }
+
+                                    ]
+                        }
+
+                ],
+
+    "school_details" : [
+                            {
+                                "class" : "XII",
+                                "board" : "CBSE",
+                                "year" : "2013",
+                                "school_name" : "Long school name to test table stability sfajnksfj asjfli asjdja sfjaos foasjfo ajsfjaisf",
+                                "marks" : "95%"
+                            },
+                            {
+                                "class" : "X",
+                                "board" : "CBSE",
+                                "year" : "2011",
+                                "school_name" : "Kendriya Vidyalaya",
+                                "marks" : "95%"
+                            }
+                        ],
+    "academic_details" : [
+                            {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+                            {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+                            {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+                            {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+                            {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+                        ],
+    "project_details" : [
+                          {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+                          {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+                          {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+                          {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+                          {"value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+                        ],
+    "programming_langs" : "C, C++, Python, Javascript",
+    "operating_sys" : "Windows, Ubuntu, Unix",
+    "packages" : "MS Office, MATLAB"
+}

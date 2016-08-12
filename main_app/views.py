@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from models import Resume
 from .forms import ResumeForm
+import json
+import os
 
 def index(request):
 	return render(request, 'index.html')
@@ -48,8 +50,31 @@ def new_resume(request):
 			if resume_form.is_valid():
 				resume = resume_form.save(commit = False);
 				resume.user = request.user
-				resume.save()
-				return HttpResponse("Your resume was saved")
+				file_generator = {
+     								"config.debug":True
+     								}
+    			file_generator["config.inputFile"] = "ugprefinal.docx"
+    			file_generator["config.outputFile"] = request.user.username + ".docx"
+    			file_generator["config.debug"] = True
+    			file_generator["name_full"] = resume.name
+    			file_generator["address"] = resume.address
+    			file_generator["gender"] = resume.gender
+    			file_generator["nationality"] = resume.nationality
+    			file_generator["email_id"] = resume.email_id
+    			file_generator["dob"] = str(resume.dob)
+
+    			json_data = json.dumps(file_generator);
+
+    			os.chdir("builder")
+    			f = open(request.user.username + ".json", 'w')
+    			f.write(json_data)
+    			f.close()
+    			os.system("docxtemplater " + request.user.username + ".json")
+    			resume.resume_file.name = os.getcwd() + "/" + request.user.username + ".docx"
+    			print resume.resume_file.name 
+    			os.chdir("..")
+    			resume.save()
+    			return HttpResponse("Your resume was saved")
 		return render(request, 'new_resume.html', {'form' : resume_form})
 	return HttpResponse("Not valid")
 
@@ -64,6 +89,17 @@ def edit_resume(request):
 				return HttpResponse("Your resume was edited successfully")
 		return render(request, 'edit_resume.html', {'form': resume_form})
 	return HttpResponse("Not valid")
+
+def download_resume(request):
+	resume = Resume.objects.filter(user = request.user)
+	if len(resume) != 0:
+		r = resume[0]
+		r_file = open(r.resume_file.url)
+		print r_file
+		response = HttpResponse(r_file)
+		response['Content-Disposition'] = "attachment; filename=" + r.resume_file.name.split("/")[-1]
+		return response
+	return HttpResponse("Can't find your resume")
 
 def delete_resume(request):
 	return HttpResponse("Yet to implement")
