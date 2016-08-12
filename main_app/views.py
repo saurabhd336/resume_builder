@@ -70,7 +70,7 @@ def new_resume(request):
     			f.write(json_data)
     			f.close()
     			os.system("docxtemplater " + request.user.username + ".json")
-    			resume.resume_file.name = os.getcwd() + "/" + request.user.username + ".docx"
+    			resume.resume_file.name =  "builder/" + request.user.username + ".docx"
     			print resume.resume_file.name 
     			os.chdir("..")
     			resume.save()
