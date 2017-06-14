@@ -13,7 +13,6 @@ class MyBackend(object):
                 user.save()
             return user
         except Exception, e:
-            print e
             return None
 
     def get_user(self, user_id):

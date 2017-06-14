@@ -1,6 +1,7 @@
 db.sqlite3
 env
 *.pyc
+main_app/migrations/
 staticfiles
 .env
 *.docx
